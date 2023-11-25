@@ -43,7 +43,7 @@ function App() {
      const name = localStorage.getItem('username');
      
      // Include the name in the endpoint URL
-     const apiUrl = `http://localhost:8000/mentor/get_access_of_specific_business/?name=${name}`;
+     const apiUrl = `https://mentor-app-h43vr.ondigitalocean.app/mentor/get_access_of_specific_business/?name=${name}`;
  
      // Fetch businesses from the server on component mount
      axios.get(apiUrl)
@@ -59,7 +59,7 @@ function App() {
     const fetchData = async () => {
         const name = localStorage.getItem('username');
         try {
-            const response = await axios.get(`http://localhost:8000/mentor/business_insert_db/?name=${name}`);
+            const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/business_insert_db/?name=${name}`);
             setBusinessname(response.data.business_name);
             setIs_staff(response.data.is_staff);
             setIs_superuser(response.data.is_superuser);
@@ -79,7 +79,7 @@ function App() {
   
    function login(user, pass) {
    
-    axios.post('http://localhost:8000/login/', {
+    axios.post('https://mentor-app-h43vr.ondigitalocean.app/login/', {
         username: user,
         password: pass,
     })
@@ -115,7 +115,7 @@ window.onbeforeunload = function() {
 };
 
 function logout() {
-  axios.get("http://localhost:8000/logout/")
+  axios.get("https://mentor-app-h43vr.ondigitalocean.app/logout/")
   setSession(null)
   localStorage.removeItem('session')
   localStorage.removeItem('username')

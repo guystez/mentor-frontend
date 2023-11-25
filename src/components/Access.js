@@ -19,7 +19,7 @@ function Access({ logout }) {
 
     useEffect(() => {
         // Fetch businesses from the server on component mount
-        axios.get('http://localhost:8000/mentor/get_all_business_access/')
+        axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_all_business_access/')
             .then(response => {
                 setAllBusinesses(response.data.all_businesses);
                 setReloadBusinesses(false); 
@@ -38,7 +38,7 @@ function Access({ logout }) {
       }
   
       // Make a POST request to your server with the selected business and action
-      axios.post('http://localhost:8000/mentor/post_all_business_access/', {
+      axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/post_all_business_access/', {
         'businessId': selectedBusiness,
         'action': action
       })

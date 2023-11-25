@@ -56,7 +56,7 @@ const handleManageClick = () => {
 const fetchEmployees = () => {
   const name = localStorage.getItem('username');
   if (name) {
-      axios.get('http://localhost:8000/mentor/edit_employees_get/', { params: { name } })
+      axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/edit_employees_get/', { params: { name } })
           .then(response => {
               
               setemployees(response.data.employee_list);
@@ -72,7 +72,7 @@ useEffect(() => {
   const get_area = async () => {
       const name = localStorage.getItem('username');
       try {
-          const response = await axios.get(`http://localhost:8000/mentor/get_areas/?name=${name}`);
+          const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_areas/?name=${name}`);
           setAll_area(response.data.all_areas);
       } catch (error) {
           console.error('Error fetching data:', error);
@@ -86,7 +86,7 @@ useEffect(() => {
   useEffect(() => {
       const name = localStorage.getItem('username');
       if (name) {
-          axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+          axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
               .then(response => {
                
                   setMassages(response.data.massages);
@@ -103,7 +103,7 @@ useEffect(() => {
 
     const name = localStorage.getItem('username');
     try {
-        const url = `http://localhost:8000/mentor/edit_employees_delete/${employeeId}/?name=${name}`;
+        const url = `https://mentor-app-h43vr.ondigitalocean.app/mentor/edit_employees_delete/${employeeId}/?name=${name}`;
         const response = await axios.delete(url);
        
         
@@ -122,7 +122,7 @@ useEffect(() => {
   const check_completed_yesterday = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${date}`);
      
       setNotcompleted_yesterday(response.data.checklists);
     } catch (error) {
@@ -137,7 +137,7 @@ useEffect(() => {
   const check_completed = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
      
       setNotcompleted_today(response.data.checklists);
     } catch (error) {
@@ -163,7 +163,7 @@ useEffect(() => {
       const fetchData_auto = async () => {
           const name = localStorage.getItem('username');
           try {
-              const response = await axios.get(`http://localhost:8000/mentor/get_uncomplete_task_auto/?name=${name}`);
+              const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_uncomplete_task_auto/?name=${name}`);
               setChecklists_today(response.data.checklists);
           } catch (error) {
               console.error('Error fetching data:', error);
@@ -176,7 +176,7 @@ useEffect(() => {
   const update_data_of_business = async (id, updatedContent) => {
     const name = localStorage.getItem('username');
     try {
-      const response = await axios.post('http://localhost:8000/mentor/update_business_data/', {
+      const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/update_business_data/', {
         name,
         data_update: updatedContent
       });
@@ -192,7 +192,7 @@ useEffect(() => {
   const fetchData_of_business = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/get_business_data/?name=${name}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_business_data/?name=${name}`);
      
       setDataofbusiness(response.data.business);
       
@@ -212,7 +212,7 @@ useEffect(() => {
     const name = localStorage.getItem('username'); 
     try {
       // Construct the URL with both id and name as query parameters
-      const url = `http://localhost:8000/mentor/delete_checklist_item/${id}/?name=${name}`;
+      const url = `https://mentor-app-h43vr.ondigitalocean.app/mentor/delete_checklist_item/${id}/?name=${name}`;
       
       const response = await axios.delete(url);
      
@@ -228,7 +228,7 @@ useEffect(() => {
   const fetchData = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/create_check_list/?name=${name}&area=${area}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/create_check_list/?name=${name}&area=${area}`);
      
       setChecklists(response.data.checklists);
     } catch (error) {
@@ -246,7 +246,7 @@ useEffect(() => {
     e.preventDefault();
     const name = localStorage.getItem('username');
     try {
-      const response = await axios.post('http://localhost:8000/mentor/create_check_list/', {
+      const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/create_check_list/', {
         name,
         text,
         area,

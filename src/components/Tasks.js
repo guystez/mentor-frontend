@@ -25,7 +25,7 @@ function Task({ logout }) {
   useEffect(() => {
     const name = localStorage.getItem('username');
     if (name) {
-        axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+        axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
             .then(response => {
             
 
@@ -46,7 +46,7 @@ function Task({ logout }) {
   const handleButtonClick = (task_id) => {
     const name = localStorage.getItem('username');
     if (name) {
-      axios.post('http://localhost:8000/mentor/post_employee_tasks_for_employee/', { name, employee_id, task_id })
+      axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/post_employee_tasks_for_employee/', { name, employee_id, task_id })
         .then(response => {
          
           setUpdate(prev => !prev); // Toggle the state to trigger useEffect
@@ -60,7 +60,7 @@ function Task({ logout }) {
   useEffect(() => {
     const name = localStorage.getItem('username');
     if (name) {
-      axios.get('http://localhost:8000/mentor/get_employee_tasks_for_employee/', { params: { name } })
+      axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_employee_tasks_for_employee/', { params: { name } })
         .then(response => {
        
           setTasks(response.data.tasks_list);
@@ -141,7 +141,7 @@ function Task({ logout }) {
 
   {visibleImage && (
     <div className="image-popup">
-      <img src={`http://localhost:8000${visibleImage}`} alt="Task" />
+      <img src={`https://mentor-app-h43vr.ondigitalocean.app${visibleImage}`} alt="Task" />
       <button onClick={() => setVisibleImage(null)}>Close Image</button>
     </div>
   )}

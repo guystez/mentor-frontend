@@ -27,7 +27,7 @@ function Search({ logout }) {
     useEffect(() => {
       const name = localStorage.getItem('username');
       if (name) {
-          axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+          axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
               .then(response => {
             
               
@@ -48,7 +48,7 @@ function Search({ logout }) {
     useEffect(() => {
         const name = localStorage.getItem('username');
         if (name) {
-          axios.get('http://localhost:8000/mentor/get_employee_tasks_for_employee/', { params: { name } })
+          axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_employee_tasks_for_employee/', { params: { name } })
             .then(response => {
             
               setTasks(response.data.tasks_list);
@@ -81,7 +81,7 @@ function Search({ logout }) {
   useEffect(() => {
       const name = localStorage.getItem('username');
       if (name) {
-          axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+          axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
               .then(response => {
                 
                   setMassages(response.data.massages);
@@ -98,7 +98,7 @@ function Search({ logout }) {
   const check_completed_yesterday = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${date}`);
   
       setNotcompleted_yesterday(response.data.checklists);
     } catch (error) {
@@ -114,7 +114,7 @@ function Search({ logout }) {
   const check_completed = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
    
       setNotcompleted_today(response.data.checklists);
     } catch (error) {
@@ -137,7 +137,7 @@ function Search({ logout }) {
     const sendSearchQueryToBackend = async () => {
         setLoading(true);  // Start loading
         try {
-            const response = await axios.post('http://localhost:8000/mentor/search/', {
+            const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/search/', {
                 query: searchQuery,
                 username: localStorage.getItem('username'),
                 business_code: localStorage.getItem('business_code')
@@ -154,7 +154,7 @@ function Search({ logout }) {
         const fetchData_auto = async () => {
             const name = localStorage.getItem('username');
             try {
-                const response = await axios.get(`http://localhost:8000/mentor/get_uncomplete_task_auto/?name=${name}`);
+                const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_uncomplete_task_auto/?name=${name}`);
                 setChecklists_today(response.data.checklists);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -168,7 +168,7 @@ function Search({ logout }) {
         const fetchData = async () => {
             const name = localStorage.getItem('username');
             try {
-                const response = await axios.get(`http://localhost:8000/mentor/business_insert_db/?name=${name}`);
+                const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/business_insert_db/?name=${name}`);
                 setBusinessname(response.data.business_name);
                 setIs_staff(response.data.is_staff);
             } catch (error) {

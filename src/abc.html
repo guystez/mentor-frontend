@@ -21,7 +21,7 @@ function Inbox({ logout }) {
   useEffect(() => {
       const name = localStorage.getItem('username');
       if (name) {
-          axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+          axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
               .then(response => {
                 console.log("Response data:", response.data); 
                   setMassages(response.data.massages);
@@ -35,7 +35,7 @@ function Inbox({ logout }) {
 
   const handleDelete = (id) => {
     const name = localStorage.getItem('username');
-    axios.delete(`http://localhost:8000/mentor/delete_massage/${id}/?name=${name}`)
+    axios.delete(`https://mentor-app-h43vr.ondigitalocean.app/mentor/delete_massage/${id}/?name=${name}`)
         .then(() => {
             setMassages(prevMassages => prevMassages.filter(massage => massage.id !== id));
         })
@@ -51,7 +51,7 @@ function Inbox({ logout }) {
   const check_completed_yesterday = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${date}`);
       console.log('Returned data:', response.data);
       setNotcompleted_yesterday(response.data.checklists);
     } catch (error) {
@@ -72,7 +72,7 @@ function Inbox({ logout }) {
   const check_completed = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
       console.log('Returned data:', response.data);
       setNotcompleted_today(response.data.checklists);
     } catch (error) {
@@ -88,7 +88,7 @@ function Inbox({ logout }) {
   const fetchData_auto = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/get_uncomplete_task_auto/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_uncomplete_task_auto/?name=${name}&area=${area}&date=${date}`);
       console.log('Returned data:', response.data);
       setChecklists_today(response.data.checklists);
     } catch (error) {
@@ -105,7 +105,7 @@ function Inbox({ logout }) {
   const fetchData = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/get_uncomplete_task/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_uncomplete_task/?name=${name}&area=${area}&date=${date}`);
       console.log('Returned data:', response.data);
       setChecklists(response.data.checklists);
     } catch (error) {

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate for redire
 
 class PaymentLockMessage extends React.Component {
     logout = () => {
-        axios.get("http://localhost:8000/logout/")
+        axios.get("https://mentor-app-h43vr.ondigitalocean.app/logout/")
             .then(response => {
                 // Handle the response from the server if needed
             })

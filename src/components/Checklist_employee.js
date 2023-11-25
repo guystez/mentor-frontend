@@ -29,7 +29,7 @@ function DisplayChecklist({logout}) {
   useEffect(() => {
     const name = localStorage.getItem('username');
     if (name) {
-        axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+        axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
             .then(response => {
             
             
@@ -50,7 +50,7 @@ function DisplayChecklist({logout}) {
     useEffect(() => {
         const name = localStorage.getItem('username');
         if (name) {
-          axios.get('http://localhost:8000/mentor/get_employee_tasks_for_employee/', { params: { name } })
+          axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_employee_tasks_for_employee/', { params: { name } })
             .then(response => {
         
               setTasks(response.data.tasks_list);
@@ -68,7 +68,7 @@ function DisplayChecklist({logout}) {
     const get_area = async () => {
         const name = localStorage.getItem('username');
         try {
-            const response = await axios.get(`http://localhost:8000/mentor/get_areas/?name=${name}`);
+            const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_areas/?name=${name}`);
             setAll_area(response.data.all_areas);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -101,7 +101,7 @@ function DisplayChecklist({logout}) {
   const fetchData = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/create_check_list/?name=${name}&area=${area}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/create_check_list/?name=${name}&area=${area}`);
      
       setChecklists(response.data.checklists);
   
@@ -131,7 +131,7 @@ function DisplayChecklist({logout}) {
 
   const sendChecklist = async () => {
     try {
-      const response = await axios.post(`http://localhost:8000/mentor/update_checklist/`, {
+      const response = await axios.post(`https://mentor-app-h43vr.ondigitalocean.app/mentor/update_checklist/`, {
         completedTasks,
         'name':localStorage.getItem('username'),
         'area':area

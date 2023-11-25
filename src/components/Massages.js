@@ -30,7 +30,7 @@ function Massages({logout}) {
     useEffect(() => {
         const name = localStorage.getItem('username');
         if (name) {
-          axios.get('http://localhost:8000/mentor/get_employee_tasks_for_employee/', { params: { name } })
+          axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_employee_tasks_for_employee/', { params: { name } })
             .then(response => {
               
               setTasks(response.data.tasks_list);
@@ -84,7 +84,7 @@ function Massages({logout}) {
         const fetchData = async () => {
             const name = localStorage.getItem('username');
             try {
-                const response = await axios.get(`http://localhost:8000/mentor/business_insert_db/?name=${name}`);
+                const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/business_insert_db/?name=${name}`);
                 setBusinessname(response.data.business_name);
                 setIs_staff(response.data.is_staff);
             } catch (error) {
@@ -99,7 +99,7 @@ function Massages({logout}) {
     useEffect(() => {
         const name = localStorage.getItem('username');
         if (name) {
-            axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+            axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
                 .then(response => {
                 
                 
@@ -125,7 +125,7 @@ function Massages({logout}) {
         const name = localStorage.getItem('username');
 
         try {
-            const response = await axios.post('http://localhost:8000/mentor/post_massages/', {
+            const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/post_massages/', {
                 text: message,
                 name: name,
                 manager:false,
@@ -151,7 +151,7 @@ function Massages({logout}) {
         const name = localStorage.getItem('username');
     
         try {
-            const response = await axios.post('http://localhost:8000/mentor/mark_read/', {
+            const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/mark_read/', {
                 massageId: massageId,
                 name: name,
             });

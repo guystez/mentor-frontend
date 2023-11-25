@@ -27,7 +27,7 @@ function Inbox({ logout }) {
   const [selectedDate, setSelectedDate] = useState('');
   const [image, setImage] = useState(null);
   const [visibleImage, setVisibleImage] = useState(null);
-  const BACKEND_URL = "http://localhost:8000";
+  const BACKEND_URL = "https://mentor-app-h43vr.ondigitalocean.app";
   const [messageText, setMessageText] = useState('');
   const [taskText, set_TaskText] = useState('');
   const [employeeId, setEmployeeId] = useState('');
@@ -39,7 +39,7 @@ function Inbox({ logout }) {
     setMessageSent(true);
     const name = localStorage.getItem('username');
     try {
-        const response = await axios.post('http://localhost:8000/mentor/post_massages/', {
+        const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/post_massages/', {
             text: messageText,  // Assuming you have `messageText` state variable for input value
             name: name,
             manager: true,
@@ -66,7 +66,7 @@ useEffect(() => {
   const get_area = async () => {
       const name = localStorage.getItem('username');
       try {
-          const response = await axios.get(`http://localhost:8000/mentor/get_areas/?name=${name}`);
+          const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_areas/?name=${name}`);
           setAll_area(response.data.all_areas);
       } catch (error) {
           console.error('Error fetching data:', error);
@@ -81,7 +81,7 @@ useEffect(() => {
     const fetchEmployees = () => {
       const name = localStorage.getItem('username');
       if (name) {
-        axios.get('http://localhost:8000/mentor/edit_employees_get/', { params: { name } })
+        axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/edit_employees_get/', { params: { name } })
           .then(response => {
            
             setEmployees(response.data.employee_list);
@@ -117,7 +117,7 @@ useEffect(() => {
 const handleButtonClick = () => {
   const name = localStorage.getItem('username');
   if (name) {
-    axios.post('http://localhost:8000/mentor/post_employee_tasks/', { name, employee_id, Task_text, image })
+    axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/post_employee_tasks/', { name, employee_id, Task_text, image })
       .then(response => {
         
         
@@ -137,7 +137,7 @@ const handleButtonClick = () => {
 
 
   const fetchTasks = (username) => {
-    axios.get('http://localhost:8000/mentor/get_employee_tasks/', { params: { name: username } })
+    axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_employee_tasks/', { params: { name: username } })
         .then(response => {
             
             setTasks(response.data.tasks_list);
@@ -162,7 +162,7 @@ useEffect(() => {
 const fetchMassages = () => {
   const name = localStorage.getItem('username');
   if (name) {
-      axios.get('http://localhost:8000/mentor/get_massages/', { params: { name } })
+      axios.get('https://mentor-app-h43vr.ondigitalocean.app/mentor/get_massages/', { params: { name } })
           .then(response => {
              
               setMassages(response.data.massages);
@@ -176,7 +176,7 @@ const fetchMassages = () => {
 useEffect(fetchMassages, []);
 const handleDelete = (id) => {
   const name = localStorage.getItem('username');
-  axios.delete(`http://localhost:8000/mentor/delete_massage/${id}/?name=${name}`)
+  axios.delete(`https://mentor-app-h43vr.ondigitalocean.app/mentor/delete_massage/${id}/?name=${name}`)
       .then(() => {
           // Update the prevMessageCount
           const prevMessageCount = parseInt(localStorage.getItem('viewedMessagesCount') || '0');
@@ -196,7 +196,7 @@ const handleDelete = (id) => {
 
 const TaskDelete = (id) => {
   const name = localStorage.getItem('username');
-  axios.delete(`http://localhost:8000/mentor/delete_tasks/${id}/?name=${name}`)
+  axios.delete(`https://mentor-app-h43vr.ondigitalocean.app/mentor/delete_tasks/${id}/?name=${name}`)
       .then(() => {
           setTasks(prevMassages => prevMassages.filter(massage => massage.id !== id));
       })
@@ -213,7 +213,7 @@ const TaskDelete = (id) => {
 const check_completed_yesterday = async () => {
   const name = localStorage.getItem('username');  // Get username from localStorage
   try {
-    const response = await axios.get(`http://localhost:8000/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${selectedDate}`);
+    const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed_yesterday/?name=${name}&area=${area}&date=${selectedDate}`);
     
     setNotcompleted_yesterday(response.data.checklists);
   } catch (error) {
@@ -225,7 +225,7 @@ const check_completed_yesterday = async () => {
   const check_completed = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
       
       setNotcompleted_today(response.data.checklists);
     } catch (error) {
@@ -241,7 +241,7 @@ const check_completed_yesterday = async () => {
   const fetchData_auto = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/get_uncomplete_task_auto/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_uncomplete_task_auto/?name=${name}&area=${area}&date=${date}`);
      
       setChecklists_today(response.data.checklists);
     } catch (error) {
@@ -258,7 +258,7 @@ const check_completed_yesterday = async () => {
   const fetchData = async () => {
     const name = localStorage.getItem('username');  // Get username from localStorage
     try {
-      const response = await axios.get(`http://localhost:8000/mentor/get_uncomplete_task/?name=${name}&area=${area}&date=${date}`);
+      const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_uncomplete_task/?name=${name}&area=${area}&date=${date}`);
      
       setChecklists(response.data.checklists);
     } catch (error) {

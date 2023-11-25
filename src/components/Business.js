@@ -29,7 +29,7 @@ function Create_business({ logout }) {
   // Function to send the search query to the backend
   const sendSearchQueryToBackend = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/mentor/business_insert_db/', {
+      const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/business_insert_db/', {
         business_name: businessname,
         business_code: businesscode,
         business_type: businesstype,

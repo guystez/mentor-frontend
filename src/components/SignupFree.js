@@ -32,7 +32,7 @@ const SignupFree = () => {
     dataToSend.is_superuser = isSuperuser;
    
 
-    axios.post('http://localhost:8000/register/', dataToSend)
+    axios.post('https://mentor-app-h43vr.ondigitalocean.app/register/', dataToSend)
       .then((response) => {
         // Success
        
