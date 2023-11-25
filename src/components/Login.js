@@ -25,7 +25,7 @@ return (
 ) : (
   <>
                   <li>
-              {/* <a href="http://localhost:3000/create_business/">Create</a> */}
+              {/* <a href="https://mentor-frontend.onrender.com/create_business/">Create</a> */}
             </li>
   </>
 )}
@@ -44,8 +44,8 @@ return (
                <input type="password" name="password" placeholder="Enter Password" />
                <input className="login-button" value="Login" type="submit"/>
                <div className="login-footer">
-               <a className="button0 button1" href="http://localhost:3000/signup/">Signup</a>
-               <a className="button0 button2" href="http://localhost:3000/create_business/">Create</a>
+               <a className="button0 button1" href="https://mentor-frontend.onrender.com/signup/">Signup</a>
+               <a className="button0 button2" href="https://mentor-frontend.onrender.com/create_business/">Create</a>
               </div>
            </form>
        </div>

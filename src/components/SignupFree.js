@@ -64,8 +64,8 @@ const SignupFree = () => {
               <div className='margin-bottom2'>
            <div className="login-footer">
        
-            <a className="button0 button1" href="http://localhost:3000/login/">Login</a>
-            <a className="button0 button2" href="http://localhost:3000/create_business/">Create</a>
+            <a className="button0 button1" href="https://mentor-frontend.onrender.com/login/">Login</a>
+            <a className="button0 button2" href="https://mentor-frontend.onrender.com/create_business/">Create</a>
             </div>
            
             </div>

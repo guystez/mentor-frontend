@@ -128,16 +128,16 @@ function Inbox({ logout }) {
             <h2 className='text-title'>Mentor.AI</h2>
                 <ul>
                     <li>
-                        <a href="http://localhost:3000/edit/">Edit</a>
+                        <a href="https://mentor-frontend.onrender.com/edit/">Edit</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/manage/">Manage</a>
+                        <a href="https://mentor-frontend.onrender.com/manage/">Manage</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/analytics/">Analytics</a>
+                        <a href="https://mentor-frontend.onrender.com/analytics/">Analytics</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/">Home</a>
+                        <a href="https://mentor-frontend.onrender.com/">Home</a>
                     </li>
                     <li>
                         <NavLink to="/" onClick={logout}>

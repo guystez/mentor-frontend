@@ -282,13 +282,13 @@ const [sidebarOpen, setSidebarOpen] = useState(false);
         </div>
         <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`} >
             <nav>
-            <a className='sidebar-logo' href='http://localhost:3000/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
+            <a className='sidebar-logo' href='https://mentor-frontend.onrender.com/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
                 <ul>
                     <li>
-                        <a href="http://localhost:3000/edit/"><FontAwesomeIcon icon={faPenToSquare} />Edit</a>
+                        <a href="https://mentor-frontend.onrender.com/edit/"><FontAwesomeIcon icon={faPenToSquare} />Edit</a>
                     </li>
                     <li>
-  <a href="http://localhost:3000/manage/" onClick={handleManageClick}>
+  <a href="https://mentor-frontend.onrender.com/manage/" onClick={handleManageClick}>
     <FontAwesomeIcon icon={faListCheck} />
     Manage 
     {getNewNotificationsCount() > 0 && (
@@ -297,10 +297,10 @@ const [sidebarOpen, setSidebarOpen] = useState(false);
   </a>
 </li>
                     <li>
-                        <a href="http://localhost:3000/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a>
+                        <a href="https://mentor-frontend.onrender.com/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a>
                     </li>
                     <li>
-                    <a href="http://localhost:3000/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a>
+                    <a href="https://mentor-frontend.onrender.com/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a>
                     </li>
                     <li>
                         <NavLink to="/" onClick={logout}>

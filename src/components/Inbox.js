@@ -285,19 +285,19 @@ const check_completed_yesterday = async () => {
         </div>
         <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`} >
             <nav>
-            <a className='sidebar-logo' href='http://localhost:3000/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
+            <a className='sidebar-logo' href='https://mentor-frontend.onrender.com/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
                 <ul>
                     <li>
-                        <a href="http://localhost:3000/edit/"><FontAwesomeIcon icon={faPenToSquare} />Edit</a>
+                        <a href="https://mentor-frontend.onrender.com/edit/"><FontAwesomeIcon icon={faPenToSquare} />Edit</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/manage/"><FontAwesomeIcon icon={faListCheck} />Manage</a>
+                        <a href="https://mentor-frontend.onrender.com/manage/"><FontAwesomeIcon icon={faListCheck} />Manage</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a>
+                        <a href="https://mentor-frontend.onrender.com/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a>
                     </li>
                     <li>
-                    <a href="http://localhost:3000/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a>
+                    <a href="https://mentor-frontend.onrender.com/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a>
                     </li>
                     <li>
                         <NavLink to="/" onClick={logout}>

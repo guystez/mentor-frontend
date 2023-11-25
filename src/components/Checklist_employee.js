@@ -161,28 +161,28 @@ function DisplayChecklist({logout}) {
         </div>
         <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`} >
             <nav>
-            <a className='sidebar-logo' href='http://localhost:3000/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
+            <a className='sidebar-logo' href='https://mentor-frontend.onrender.com/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
     <ul>
         {is_staff && (
             <>
-                <li><a href="http://localhost:3000/edit/"><FontAwesomeIcon icon={faPenToSquare} />Edit</a></li>
-               <li><a href="http://localhost:3000/manage/" onClick={handleManageClick}>
+                <li><a href="https://mentor-frontend.onrender.com/edit/"><FontAwesomeIcon icon={faPenToSquare} />Edit</a></li>
+               <li><a href="https://mentor-frontend.onrender.com/manage/" onClick={handleManageClick}>
                <FontAwesomeIcon icon={faListCheck} />Manage {getNewNotificationsCount() > 0 && `(${getNewNotificationsCount()})`}
 </a></li>
 
 
-                <li><a href="http://localhost:3000/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a></li>
+                <li><a href="https://mentor-frontend.onrender.com/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a></li>
                 <li>
-                <a href="http://localhost:3000/"><FontAwesomeIcon icon={faHouse} />Home</a>
+                <a href="https://mentor-frontend.onrender.com/"><FontAwesomeIcon icon={faHouse} />Home</a>
               </li>
             </>
         )}
         {!is_staff && (
             <>
-                <li><a href="http://localhost:3000/checklist/"><FontAwesomeIcon icon={faRectangleList} />Checklist</a></li>
-                <li><a href="http://localhost:3000/massages/"><FontAwesomeIcon icon={faMessage} />Massages <MassagesCount massages={Massages_of_employee} currentUser={name} /></a></li>
-                <li><a href="http://localhost:3000/tasks/"><FontAwesomeIcon icon={faSquareCheck} />Tasks <TaskCount tasks={tasks} /></a></li>
-                <li><a href="http://localhost:3000/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a></li>
+                <li><a href="https://mentor-frontend.onrender.com/checklist/"><FontAwesomeIcon icon={faRectangleList} />Checklist</a></li>
+                <li><a href="https://mentor-frontend.onrender.com/massages/"><FontAwesomeIcon icon={faMessage} />Massages <MassagesCount massages={Massages_of_employee} currentUser={name} /></a></li>
+                <li><a href="https://mentor-frontend.onrender.com/tasks/"><FontAwesomeIcon icon={faSquareCheck} />Tasks <TaskCount tasks={tasks} /></a></li>
+                <li><a href="https://mentor-frontend.onrender.com/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a></li>
             </>
         )}
         <li>

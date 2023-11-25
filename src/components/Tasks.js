@@ -97,14 +97,14 @@ function Task({ logout }) {
         </div>
         <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`} >
             <nav>
-            <a className='sidebar-logo' href='http://localhost:3000/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
+            <a className='sidebar-logo' href='https://mentor-frontend.onrender.com/search/'><img className='sidebar-logo-image' src={logo} alt="Logo" /></a>
                 <ul>
                     
                     
-                <li><a href="http://localhost:3000/checklist/"><FontAwesomeIcon icon={faRectangleList} />Checklist</a></li>
-                <li><a href="http://localhost:3000/massages/"><FontAwesomeIcon icon={faMessage} />Massages <MassagesCount massages={Massages_of_employee} currentUser={name} /></a></li>
-                <li><a href="http://localhost:3000/tasks/"><FontAwesomeIcon icon={faSquareCheck} />Tasks <TaskCount tasks={tasks} /></a> </li>
-                <li><a href="http://localhost:3000/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a></li>
+                <li><a href="https://mentor-frontend.onrender.com/checklist/"><FontAwesomeIcon icon={faRectangleList} />Checklist</a></li>
+                <li><a href="https://mentor-frontend.onrender.com/massages/"><FontAwesomeIcon icon={faMessage} />Massages <MassagesCount massages={Massages_of_employee} currentUser={name} /></a></li>
+                <li><a href="https://mentor-frontend.onrender.com/tasks/"><FontAwesomeIcon icon={faSquareCheck} />Tasks <TaskCount tasks={tasks} /></a> </li>
+                <li><a href="https://mentor-frontend.onrender.com/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a></li>
                     <li>
                         <NavLink to="/" onClick={logout}>
                         <FontAwesomeIcon icon={faArrowRightFromBracket} />Logout
