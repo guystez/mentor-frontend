@@ -143,43 +143,52 @@ const isLoggedIn = !!localStorage.getItem('username');
   return (
   
     
-   <BrowserRouter>
-            <div className="App">
-                <Fragment>
-                    <Routes>
-                        <Route path='/' element={<HomePage logout={logout} />} />
-                        <Route path='/signup' element={<SignupFree />} />
-                        <Route path='/login' element={<LoginPage login={login} logout={logout} />} />
-                        <Route path='/create_business' element={<Create_business login={login} />} />
+    <BrowserRouter>
+    <div className="App">
+    
+        <Fragment>
+            <Routes>
+                <Route path='/' element={<HomePage logout={logout} />} />
+                
+                <Route path='/signup' element={<SignupFree />} />
+                <Route path='/login' element={<LoginPage login={login} logout={logout} />} />
+                <Route path='/create_business' element={<Create_business login={login} />} />
+            
 
-                        {/* Conditional Routes */}
-                        {hasAccessToAllPages() && isLoggedIn && (
+                {/* If has access to all pages, render these routes */}
+                {hasAccessToAllPages() && isLoggedIn ? (
+                    <>
+                        <Route path='/search' element={<Search logout={logout} />} />
+                        <Route path='/checklist' element={<DisplayChecklist logout={logout} />} />
+                        <Route path='/tasks' element={<Task logout={logout} />} />
+                        <Route path='/massages' element={<Massages logout={logout} />} />
+
+                        {/* These routes are only for staff */}
+                        {is_staff && (
                             <>
                                 <Route path='/search' element={<Search logout={logout} />} />
-                                <Route path='/checklist' element={<DisplayChecklist logout={logout} />} />
-                                <Route path='/tasks' element={<Task logout={logout} />} />
-                                <Route path='/massages' element={<Massages logout={logout} />} />
-
-                                {/* Staff-only Routes */}
-                                {is_staff && (
-                                    <>
-                                        <Route path='/search' element={<Search logout={logout} />} />
-                                        <Route path='/Analytics' element={<Analytics logout={logout} />} />
-                                        <Route path='/manage' element={<Inbox logout={logout} />} />
-                                        <Route path='/edit' element={<Edit logout={logout} />} />
-                                    </>
-                                )}
+                                <Route path='/Analytics' element={<Analytics logout={logout} />} />
+                                <Route path='/manage' element={<Inbox logout={logout} />} />
+                                <Route path='/edit' element={<Edit logout={logout} />} />
                             </>
                         )}
 
-                        {/* Fallback Route */}
-                        {!hasAccessToAllPages() && !isLoggedIn && (
-                            <Route path="*" element={<PaymentLockMessage />} />
-                        )}
-                    </Routes>
-                </Fragment>
-            </div>
-        </BrowserRouter>
+                    </>
+                ) : (
+                  <Route path="*" element={<PaymentLockMessage />} />
+                )}
+
+             
+                <Route path='/access' element={<SuperuserRoute />}>
+  <Route path='' element={<Access logout={logout} />} />
+</Route>
+
+
+            </Routes>
+        </Fragment>
+    </div>
+</BrowserRouter>
+
  
   );
 }
