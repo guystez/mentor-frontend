@@ -13,7 +13,8 @@ function Search({ logout }) {
     const [Businessname, setBusinessname] = useState('');
     const [area, setArea] = useState('');
     const [date, setDate] = useState('');
-    const [is_staff, setIs_staff] = useState('');
+    const [is_staff, setIs_staff] = useState(localStorage.getItem('isStaff') === 'true');
+    // const [is_staff, setIs_staff] = useState('');
     const [checklists_today, setChecklists_today] = useState([]);
     const [Notcompleted_today, setNotcompleted_today] = useState([]);
     const [massages, setMassages] = useState([]);
@@ -170,6 +171,7 @@ function Search({ logout }) {
             try {
                 const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/business_insert_db/?name=${name}`);
                 setBusinessname(response.data.business_name);
+                localStorage.setItem('isStaff', response.data.is_staff);
                 setIs_staff(response.data.is_staff);
             } catch (error) {
                 console.error('Error fetching data:', error);
