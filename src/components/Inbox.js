@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare,faListCheck,faChartPie,faCircleCheck,faHouse,faArrowRightFromBracket,faArrowDownLong,faDownLong,faCircleXmark,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare,faListCheck,faChartPie,faCircleCheck,faHouse,faArrowRightFromBracket,faArrowDownLong,faSpellCheck,faDownLong,faCircleXmark,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import logo from './images/logo-white.png';
@@ -297,6 +297,9 @@ const check_completed_yesterday = async () => {
                         <a href="https://mentor-frontend.onrender.com/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a>
                     </li>
                     <li>
+                    <a href="https://mentor-frontend.onrender.com/exam/"><FontAwesomeIcon icon={faSpellCheck} />Exam</a>
+                    </li>
+                    <li>
                     <a href="https://mentor-frontend.onrender.com/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a>
                     </li>
                     <li>
@@ -456,7 +459,7 @@ const check_completed_yesterday = async () => {
         className="card-messages-tasks" 
         style={{
             backgroundColor: 
-                massage.mark_read === employees.length ? '#5948ed' : 
+                massage.mark_read === employees.length -1 ? '#5948ed' : 
                 (massage.manager ? 'gray' : 'transparent')
         }} 
     >

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare,faUser,faBuildingUser,faListCheck,faChartPie,faCircleCheck,faHouse,faArrowRightFromBracket,faArrowDownLong,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare,faUser,faBuildingUser,faListCheck,faChartPie,faCircleCheck,faSpellCheck,faHouse,faArrowRightFromBracket,faArrowDownLong,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import CircleProgressBar from './CircleProgressBar'; // Adjust the path based on your directory structure
@@ -298,6 +298,9 @@ const [sidebarOpen, setSidebarOpen] = useState(false);
 </li>
                     <li>
                         <a href="https://mentor-frontend.onrender.com/analytics/"><FontAwesomeIcon icon={faChartPie} />Analytics</a>
+                    </li>
+                    <li>
+                    <a href="https://mentor-frontend.onrender.com/exam/"><FontAwesomeIcon icon={faSpellCheck} />Exam</a>
                     </li>
                     <li>
                     <a href="https://mentor-frontend.onrender.com/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a>

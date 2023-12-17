@@ -20,6 +20,8 @@ import Task from './components/Tasks';
 import Access from './components/Access';
 import PaymentLockMessage from './components/Userlocked';
 import SuperuserRoute from './components/SuperuserRoute';
+import Exam from './components/Exam';
+import Exam_employee from './components/Exam_employee';
 // import PrivateRoute from './components/PrivateRoute';
 
 // import SignupFree from './components/SignupFree';
@@ -162,6 +164,7 @@ const isLoggedIn = !!localStorage.getItem('username');
                         <Route path='/checklist' element={<DisplayChecklist logout={logout} />} />
                         <Route path='/tasks' element={<Task logout={logout} />} />
                         <Route path='/massages' element={<Massages logout={logout} />} />
+                        <Route path='/exam_employee' element={<Exam_employee logout={logout} />} />
 
                         {/* These routes are only for staff */}
                         {is_staff && (
@@ -169,6 +172,7 @@ const isLoggedIn = !!localStorage.getItem('username');
                                 <Route path='/search' element={<Search logout={logout} />} />
                                 <Route path='/Analytics' element={<Analytics logout={logout} />} />
                                 <Route path='/manage' element={<Inbox logout={logout} />} />
+                                <Route path='/exam' element={<Exam logout={logout} />} />
                                 <Route path='/edit' element={<Edit logout={logout} />} />
                             </>
                         )}

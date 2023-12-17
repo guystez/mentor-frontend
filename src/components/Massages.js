@@ -2,7 +2,7 @@
 // import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquareCheck,faPenToSquare,faMagnifyingGlass,faRectangleList,faUser,faBuildingUser,faListCheck,faChartPie,faCircleCheck,faHouse,faArrowRightFromBracket,faArrowDownLong,faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faSquareCheck,faPenToSquare,faMagnifyingGlass,faRectangleList,faSpellCheck,faUser,faBuildingUser,faListCheck,faChartPie,faCircleCheck,faHouse,faArrowRightFromBracket,faArrowDownLong,faMessage } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import logo from './images/logo-white.png';
@@ -203,6 +203,9 @@ function Massages({logout}) {
                 <li><a href="https://mentor-frontend.onrender.com/checklist/"><FontAwesomeIcon icon={faRectangleList} />Checklist</a></li>
                 <li><a href="https://mentor-frontend.onrender.com/massages/"><FontAwesomeIcon icon={faMessage} />Massages <MassagesCount massages={massages} currentUser={name} /></a></li>
                 <li><a href="https://mentor-frontend.onrender.com/tasks/"><FontAwesomeIcon icon={faSquareCheck} />Tasks <TaskCount tasks={tasks} /></a></li>
+                <li>
+                    <a href="https://mentor-frontend.onrender.com/exam_employee/"><FontAwesomeIcon icon={faSpellCheck} />Exam</a>
+                    </li>
                 <li><a href="https://mentor-frontend.onrender.com/search/"><FontAwesomeIcon icon={faMagnifyingGlass} />Search</a></li>
             </>
         )}

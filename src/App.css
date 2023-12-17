@@ -2672,3 +2672,24 @@ font-size:16px;
   margin-left: 5px;
   vertical-align: top;
 }
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+.radio-answer {
+  display: grid;
+  grid-template-columns: 1fr auto; /* 1fr for the answer text and auto for the radio button */
+  align-items: center;
+  width: 100%;
+}
+
+.radio-answer input[type="radio"] {
+  justify-self: end; /* Aligns the radio button to the end (right side) of the grid column */
+  transform: scale(2.5);
+}
+.button-margin-right {
+  margin-right: 5px;
+}
