@@ -458,14 +458,13 @@ const check_completed_yesterday = async () => {
         key={index} 
         className="card-messages-tasks" 
         style={{
-            backgroundColor: 
-                massage.mark_read === employees.length -1 ? '#5948ed' : 
-                (massage.manager ? 'gray' : 'transparent')
+          backgroundColor: massage.mark_read === employees.filter(employee => !employee.is_staff).length ? '#5948ed' : (massage.manager ? 'gray' : 'transparent')
+
         }} 
     >
         <div className='card-messages-tasks-item'>
             <p>{massage.massage}</p>
-            <p title={massage.read_by_users.join(', ')}>{massage.employee_name}{massage.manager ? `: ${massage.mark_read}/${employees.length}` : ''}</p>
+            <p title={massage.read_by_users.join(', ')}>{massage.employee_name}{massage.manager ? `: ${massage.mark_read}/${employees.filter(employee => !employee.is_staff).length}` : ''}</p>
 
          
         </div>
