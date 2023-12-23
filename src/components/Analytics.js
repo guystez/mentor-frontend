@@ -238,7 +238,7 @@ const handleManageClick = () => {
         const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_all_questiones/?name=${name}`);
         setAll_questiones(response.data);
         
-        setFilteredQuestions([]);
+        // setFilteredQuestions([]);
       
 
         const years = new Set(response.data.map(item => new Date(item.timestamp).getFullYear()));
