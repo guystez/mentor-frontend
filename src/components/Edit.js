@@ -10,7 +10,8 @@ function Edit({ logout }) {
   const [area, setArea] = useState('');
   const [finishTime, setFinishTime] = useState('');
   const [checklists, setChecklists] = useState([]);
-  const [dataofbusiness, setDataofbusiness] = useState([]);
+  const [dataofbusiness, setDataofbusiness] = useState(JSON.parse(localStorage.getItem('Dataofbusiness')) || []);
+
   const [dataUpdate, setDataUpdate] = useState('');
   const [date, setDate] = useState('');
   const [checklists_today, setChecklists_today] = useState([]);
@@ -195,6 +196,8 @@ useEffect(() => {
       const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_business_data/?name=${name}`);
      
       setDataofbusiness(response.data.business);
+      localStorage.setItem('Dataofbusiness', JSON.stringify(response.data.business));
+
       
     } catch (error) {
       console.error('Error fetching data:', error);
