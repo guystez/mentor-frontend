@@ -18,7 +18,7 @@ function Edit({ logout }) {
   const [Notcompleted_today, setNotcompleted_today] = useState([]);
   const [massages, setMassages] = useState([]);
   const [Notcompleted_yesterday, setNotcompleted_yesterday] = useState([]);
-  const [employees, setemployees] = useState([]);
+  const [employees, setemployees] = useState(JSON.parse(localStorage.getItem('employees')) || []);
   const [all_area, setAll_area] = useState([]);
   const [useTextInput, setUseTextInput] = useState(false);
   const [highlightInput, setHighlightInput] = useState(false);
@@ -61,6 +61,7 @@ const fetchEmployees = () => {
           .then(response => {
               
               setemployees(response.data.employee_list);
+              localStorage.setItem('employees', JSON.stringify(response.data.employee_list));
           })
           .catch(error => {
               console.error("Error fetching employees:", error);

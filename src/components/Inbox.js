@@ -14,8 +14,10 @@ function Inbox({ logout }) {
   const [checklists_today, setChecklists_today] = useState([]);
   const [Notcompleted_today, setNotcompleted_today] = useState([]);
   const [Notcompleted_yesterday, setNotcompleted_yesterday] = useState([]);
-  const [massages, setMassages] = useState([]);
-  const [tasks, setTasks] = useState([]);
+  const [massages, setMassages] = useState(JSON.parse(localStorage.getItem('massages')) || []);
+
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
+
   const [animate, setAnimate] = useState(false);
   const [Task_text, setTaskText] = useState('');
   const [employee_id, setEmployee_id] = useState('');
@@ -141,6 +143,7 @@ const handleButtonClick = () => {
         .then(response => {
             
             setTasks(response.data.tasks_list);
+            localStorage.setItem('tasks', JSON.stringify(response.data.tasks_list));
         })
         .catch(error => {
             console.error("Error fetching tasks:", error);
@@ -166,6 +169,7 @@ const fetchMassages = () => {
           .then(response => {
              
               setMassages(response.data.massages);
+              localStorage.setItem('massages', JSON.stringify(response.data.massages));
           })
           .catch(error => {
               console.error("Error fetching massages:", error);
