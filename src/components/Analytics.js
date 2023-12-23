@@ -13,7 +13,8 @@ import logo from './images/logo-white.png';
 
 
 function Analytics({ logout }) {
-  const [all_questiones, setAll_questiones] = useState([]);
+  const [all_questiones, setAll_questiones] = useState(JSON.parse(localStorage.getItem('all_questiones')) || []);
+
   const [filteredQuestions, setFilteredQuestions] = useState(JSON.parse(localStorage.getItem('filteredQuestions')) || []);
 
   const [selectedMonth, setSelectedMonth] = useState('August');
@@ -237,6 +238,7 @@ const handleManageClick = () => {
       try {
         const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_all_questiones/?name=${name}`);
         setAll_questiones(response.data);
+        localStorage.setItem('all_questiones', JSON.stringify(response.data));
         
         // setFilteredQuestions([]);
       
