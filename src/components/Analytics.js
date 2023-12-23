@@ -37,12 +37,16 @@ function Analytics({ logout }) {
   const [Businessname, setBusinessname] = useState(localStorage.getItem('Businessname'));
   const [is_staff, setIs_staff] = useState('');
   const currentDate = new Date();
-  const [tempMonth, setTempMonth] = useState(currentDate.getMonth() + 1);
-  const [tempYear, setTempYear] = useState(currentDate.getFullYear());
+  const [tempMonth, setTempMonth] = useState(parseInt(localStorage.getItem('tempMonth')) || currentDate.getMonth() + 1);
+  const [tempYear, setTempYear] = useState(parseInt(localStorage.getItem('tempYear')) || currentDate.getFullYear());
   
 
 
-
+  useEffect(() => {
+    localStorage.setItem('tempMonth', tempMonth.toString());
+    localStorage.setItem('tempYear', tempYear.toString());
+  }, [tempMonth, tempYear]);
+  
 
   
   useEffect(() => {
