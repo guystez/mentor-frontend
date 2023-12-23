@@ -10,7 +10,7 @@ import MassagesCount from './Massagescount';
 function Search({ logout }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [Answer, setAnswer] = useState('');
-    const [Businessname, setBusinessname] = useState('');
+    const [Businessname, setBusinessname] = useState(localStorage.getItem('Businessname'));
     const [area, setArea] = useState('');
     const [date, setDate] = useState('');
     const [is_staff, setIs_staff] = useState(localStorage.getItem('isStaff') === 'true');
@@ -171,6 +171,7 @@ function Search({ logout }) {
             try {
                 const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/business_insert_db/?name=${name}`);
                 setBusinessname(response.data.business_name);
+                localStorage.setItem('Businessname', response.data.business_name);
                 localStorage.setItem('isStaff', response.data.is_staff);
                 setIs_staff(response.data.is_staff);
             } catch (error) {
