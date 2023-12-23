@@ -24,7 +24,7 @@ function Inbox({ logout }) {
   const [showInput, setShowInput] = useState(false);
   const [showInput2, setShowInput2] = useState(false);
   const [showmassageInput, setShowmassageInput] = useState(false);
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employees')) || []);
   const [all_area, setAll_area] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [image, setImage] = useState(null);
@@ -87,6 +87,7 @@ useEffect(() => {
           .then(response => {
            
             setEmployees(response.data.employee_list);
+            localStorage.setItem('employees', JSON.stringify(response.data.employee_list));
           })
           .catch(error => {
             console.error("Error fetching employees:", error);
