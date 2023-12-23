@@ -32,7 +32,7 @@ function Analytics({ logout }) {
   const [animatedPercentage, setAnimatedPercentage] = useState(100);
   const [isInitialRender, setIsInitialRender] = useState(true);
   const [animatedValue, setAnimatedValue] = useState(100);  // start with 125 for 100% fill
-  const [Businessname, setBusinessname] = useState('');
+  const [Businessname, setBusinessname] = useState(localStorage.getItem('Businessname'));
   const [is_staff, setIs_staff] = useState('');
   const currentDate = new Date();
   const [tempMonth, setTempMonth] = useState(currentDate.getMonth() + 1);
@@ -54,6 +54,7 @@ function Analytics({ logout }) {
         try {
             const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/business_insert_db/?name=${name}`);
             setBusinessname(response.data.business_name);
+            localStorage.setItem('Businessname', response.data.business_name);
             setIs_staff(response.data.is_staff);
            
         } catch (error) {
