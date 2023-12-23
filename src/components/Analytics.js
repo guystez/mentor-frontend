@@ -14,7 +14,8 @@ import logo from './images/logo-white.png';
 
 function Analytics({ logout }) {
   const [all_questiones, setAll_questiones] = useState([]);
-  const [filteredQuestions, setFilteredQuestions] = useState([]);
+  const [filteredQuestions, setFilteredQuestions] = useState(JSON.parse(localStorage.getItem('filteredQuestions')) || []);
+
   const [selectedMonth, setSelectedMonth] = useState('August');
   const [selectedYear, setSelectedYear] = useState('0');
   // const [tempMonth, setTempMonth] = useState('');
@@ -236,6 +237,7 @@ const handleManageClick = () => {
       try {
         const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/get_all_questiones/?name=${name}`);
         setAll_questiones(response.data);
+        
         setFilteredQuestions([]);
       
 
@@ -258,6 +260,7 @@ const handleManageClick = () => {
             return questionDate.getMonth() + 1 === parseInt(tempMonth) && questionDate.getFullYear() === parseInt(tempYear);
         });
         setFilteredQuestions(filtered);
+        localStorage.setItem('filteredQuestions', JSON.stringify(filtered));
         setTotalQuestions(filtered.length);
         
         // Indicate that the initial render is over
