@@ -12,7 +12,8 @@ function Inbox({ logout }) {
   const [date, setDate] = useState('');
   const [checklists, setChecklists] = useState([]);
   const [checklists_today, setChecklists_today] = useState([]);
-  const [Notcompleted_today, setNotcompleted_today] = useState([]);
+  const [Notcompleted_today, setNotcompleted_today] = useState(JSON.parse(localStorage.getItem('Notcompleted_today')) || []);
+
   const [Notcompleted_yesterday, setNotcompleted_yesterday] = useState([]);
   const [massages, setMassages] = useState(JSON.parse(localStorage.getItem('massages')) || []);
 
@@ -233,6 +234,7 @@ const check_completed_yesterday = async () => {
       const response = await axios.get(`https://mentor-app-h43vr.ondigitalocean.app/mentor/check_completed/?name=${name}&area=${area}&date=${date}`);
       
       setNotcompleted_today(response.data.checklists);
+      localStorage.setItem('Notcompleted_today', JSON.stringify(response.data.checklists));
     } catch (error) {
       console.error('Error fetching data:', error);
     }
