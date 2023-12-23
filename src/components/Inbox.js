@@ -22,7 +22,7 @@ function Inbox({ logout }) {
   const [showInput, setShowInput] = useState(false);
   const [showInput2, setShowInput2] = useState(false);
   const [showmassageInput, setShowmassageInput] = useState(false);
-  const [employees, setEmployees] = useState('');
+  const [employees, setEmployees] = useState([]);
   const [all_area, setAll_area] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [image, setImage] = useState(null);
