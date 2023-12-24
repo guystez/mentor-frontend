@@ -24,6 +24,7 @@ function Edit({ logout }) {
   const [highlightInput, setHighlightInput] = useState(false);
   const [updates, setUpdates] = useState([]);
   const [textAreaContents, setTextAreaContents] = useState({});
+  const [inputValue, setInputValue] = useState("");
 
 
   useEffect(() => {
@@ -180,7 +181,8 @@ useEffect(() => {
     try {
       const response = await axios.post('https://mentor-app-h43vr.ondigitalocean.app/mentor/update_business_data/', {
         name,
-        data_update: updatedContent
+        data_update: updatedContent,
+        key: inputValue
       });
      
       fetchData_of_business(); // Re-fetch the data to update the UI after updating
@@ -473,6 +475,14 @@ useEffect(() => {
 
   </tbody>
 </table>
+<div>
+  <input 
+    type="text" 
+    placeholder="Enter secret key here" 
+    value={inputValue}
+    onChange={(e) => setInputValue(e.target.value)}
+  />
+</div>
 </div>
 </div>
 </div>
