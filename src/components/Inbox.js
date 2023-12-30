@@ -516,10 +516,11 @@ const check_completed_yesterday = async () => {
     onChange={(e) => setEmployee_id(e.target.value)}
 >
     <option value="" disabled={employee_id !== ""}>Select</option>
-    {employees.map(emp => (
+    {employees.filter(emp => !emp.is_staff).map(emp => (
         <option key={emp.employee_id} value={emp.employee_id}>{emp.employee_username}</option>
     ))}
 </select>
+
 
             <button className='button0 button2' onClick={handleButtonClick}>Create</button>
           </div>
