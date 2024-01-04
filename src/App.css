@@ -1968,6 +1968,7 @@ height: 500px;
     display: flex;
     justify-content: center;
     align-items: center; /* If you want vertical centering */
+    margin-top: 25px;
   }
   .search-card-header{
     margin-left: auto;
