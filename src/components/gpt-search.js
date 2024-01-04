@@ -290,7 +290,7 @@ function Search({ logout }) {
                 <button className='button0 button-search' onClick={sendSearchQueryToBackend}>Search</button>
                             </div>
                             <div className='search-result'>
-    {loading ? <p>Please wait while loading...</p> : <p>{Answer}</p>}
+    {loading ? <div class="loader"></div> : <p>{Answer}</p>}
 </div>
 
                 </div>
